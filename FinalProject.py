@@ -54,12 +54,25 @@ languages.append(French_text)
 def detect_language(lang_text):
     detection = translator.detect(lang_text)
 
-    print("Language code:", detection.lang)
-    print("Language:", googletrans.LANGUAGES[detection.lang])
+    print("\nLanguage code:", detection.lang)
+    print("\nLanguage:", googletrans.LANGUAGES[detection.lang])
 
 # choose a random piece of text
-text_to_detect = random.choice(languages)
-print(text_to_detect)
+#text_to_detect = random.choice(languages)
+#print(text_to_detect)
 
 # call detect_language function
-detect_language(text_to_detect)
+#detect_language(text_to_detect)
+
+########### Scale Up! ##########
+
+text_entry = input("Please input the text you want to detect:\n")
+
+# To improve the efficiency, only check a slice of string for detection
+if len(text_entry) > 15:
+    lang_text = text_entry[:16]
+    detect_language(lang_text)
+
+else:
+    detect_language(text_entry)
+
